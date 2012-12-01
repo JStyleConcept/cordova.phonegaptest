@@ -1,0 +1,120 @@
+﻿<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+		<link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.2.0.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/index.css" />
+		<script type="text/javascript" charset="utf-8" src="js/cordova-2.2.0.js"></script>
+		<script type="text/javascript" charset="utf-8" src="js/jquery-1.8.2.min.js"></script>
+		<script type="text/javascript" charset="utf-8" src="js/index.js"></script>
+		<script type="text/javascript" charset="utf-8" src="js/jquery.mobile-1.2.0.min.js"></script>
+		<script type="text/javascript" charset="utf-8">
+			$(document).bind("deviceready",function()
+					{
+						/*
+						$("#pg1").bind("swipeleft",function(event)
+						{
+							$.mobile.changePage("#pg2",{transition:"slide"});
+						});
+					
+						$("#pg2").bind("swiperight",function(event)
+						{
+							$.mobile.changePage("#pg1",{transition:"slide",reverse:"true"});
+						});
+						*/
+						
+						navigator.globalization.getPreferredLanguage(function(lang)
+								{
+									$(".preferredlang").text(lang.value);
+								},
+								function()
+								{
+									$(".preferredlang").text("Unknown");
+								});
+						
+						var localeLanguage="en";
+						
+						navigator.globalization.getLocaleName(function(locale)
+								{
+									$(".locale").text(locale.value);
+									if((locale.value=="zh_TW")||(locale.value=="zh_HK"))
+									{
+										localeLanguage="tc";
+									}
+									else if(locale.value=="zh_CN")
+									{
+										localeLanguage="sc";
+									}
+								},
+								function()
+								{
+									$(".locale").text("Unknown");
+								});
+						
+						$.getJSON("json/lang.json",function(json)
+								{
+									$.each(json,function(key,langVal)
+											{
+												eval("$(\""+key+"\").text(langVal[localeLanguage])");
+											});
+								});
+					});
+		</script>
+		<title></title>
+	</head>
+	<body>
+		<div id="pg1" data-role="page">
+			<div data-role="header" data-position="fixed" data-theme="b">
+				<div style="text-align:center"><h2><span id="pg1header">&nbsp;<!-- #pgheader -->&nbsp;</span></h2></div>
+				<a href="#pg2" data-role="button" class="ui-btn-right" data-theme="b" data-icon="arrow-r" data-iconpos="right" data-transition="slide"><span class="nextpage" style="font-size:2em">&nbsp;<!-- .nextpage -->&nbsp;</span></a>
+			</div>
+			<div data-role="content">
+				<p>&nbsp;</p>
+				<p>&nbsp;</p>
+				<p><h2><span id="pg1content">&nbsp;<!-- #pg1content -->&nbsp;</span></h2></p>
+				<p>Language: <span class="preferredlang">&nbsp;<!-- .preferredlang -->&nbsp;</span></p>
+				<p>Locale: <span class="locale">&nbsp;<!-- .locale -->&nbsp;</span></p>
+			</div>
+			<div data-role="footer" data-position="fixed" data-theme="b">
+				<div style="text-align:center"><h2><span id="pg1footer">&nbsp;<!-- #pg1footer -->&nbsp;</span></h2></div>
+			</div>
+		</div>
+		<div id="pg2" data-role="page">
+			<div data-role="header" data-position="fixed" data-theme="b">
+				<a href="#pg1" data-role="button" class="ui-btn-left" data-theme="b" data-icon="arrow-l" data-iconpos="left" data-transition="slide" data-direction="reverse"><span class="prevpage" style="font-size:2em">&nbsp;<!-- .prevpage -->&nbsp;</span></a>
+				<div style="text-align:center"><h2><span id="pg2header">&nbsp;<!-- #pg2header -->&nbsp;</span></h2></div>
+				<a href="index2.html" data-role="button" class="ui-btn-right" data-theme="b" data-icon="arrow-r" data-iconpos="right" data-transition="slide" rel="external"><span class="nextpage" style="font-size:2em">&nbsp;<!-- .nextpage -->&nbsp;</span></a>
+			</div>
+			<div data-role="content">
+				<p>&nbsp;</p>
+				<p>&nbsp;</p>
+				<p><h2><span id="pg2content">&nbsp;<!-- #pg2content -->&nbsp;</span></h2></p>
+				<p>Language: <span class="preferredlang">&nbsp;<!-- .preferredlang -->&nbsp;</span></p>
+				<p>Locale: <span class="locale">&nbsp;<!-- .locale -->&nbsp;</span></p>
+			</div>
+			<div data-role="footer" data-position="fixed" data-theme="b">
+				<div style="text-align:center"><h2><span id="pg2footer">&nbsp;<!-- #pg2footer -->&nbsp;</span></h2></div>
+			</div>
+		</div>
+	</body>
+</html>

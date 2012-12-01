@@ -1,0 +1,6 @@
+﻿{
+	"confirmMessage":{"en":"Confirm Exit this App ?","tc":"確定離開應用程式 ?","sc":"确定离开应用程式 ?"},
+	"confirmTitle":{"en":"Confirm Dialog","tc":"確定框","sc":"确定框"},
+	"yes":{"en":"Yes","tc":"是","sc":"是"},
+	"no":{"en":"No","tc":"否","sc":"否"}
+}

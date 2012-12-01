@@ -1,0 +1,13 @@
+﻿{
+	"#pg1header":{"en":"Page 1 Header","tc":"第一頁標題","sc":"第一页标题"},
+	"#pg1content":{"en":"Page 1 Content","tc":"第一頁內容","sc":"第一页内容"},
+	"#pg1footer":{"en":"Page 1 Footer","tc":"第一頁註腳","sc":"第二页注脚"},
+	"#pg2header":{"en":"Page 2 Header","tc":"第二頁標題","sc":"第二页标题"},
+	"#pg2content":{"en":"Page 2 Content","tc":"第二頁內容","sc":"第二页内容"},
+	"#pg2footer":{"en":"Page 2 Footer","tc":"第二頁註腳","sc":"第二页注脚"},
+	"#pg3header":{"en":"Page 3 Header","tc":"第三頁標題","sc":"第三页标题"},
+	"#pg3content":{"en":"Page 3 Content","tc":"第三頁內容","sc":"第三页内容"},
+	"#pg3footer":{"en":"Page 3 Footer","tc":"第三頁註腳","sc":"第三页注脚"},
+	".nextpage":{"en":"Next Page","tc":"下一頁","sc":"下一页"},
+	".prevpage":{"en":"Prev Page","tc":"上一頁","sc":"上一页"}
+}
